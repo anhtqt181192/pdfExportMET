@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="template.css" rel="stylesheet" />
+</head>
+<body>
+    <section id="section-main">
+        <table class="header-table">
+            <tbody>
+                <tr>
+                    <td>
+                    </td>
+                    <td class="right-content">
+                        <img height="40" src="C:\Users\anh.tran\source\repos\test_rdlc_export_pdf\test_rdlc_export_pdf\Template\sb-logo2.png" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>[CustomerName]</b>
+                    </td>
+                    <td class="right-content">
+                        <b>[CompanyName]</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        [Address1]
+                    </td>
+                    <td class="right-content">
+                        [CompanyAddess]
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        [Address2]
+                    </td>
+                    <td class="right-content">
+                        [CompanyCountry]
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        [CustomerAddress]
+                    </td>
+                    <td class="right-content">
+                        [CompanyCountry]
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-bottom mb-10">
+                        <p class="mt-0 mb-10">[CustomerCountry]</p>
+                    </td>
+                    <td class="border-bottom mb-10">
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="4" class="text-invoice mt-10">
+                        INVOICE
+                    </td>
+                    <td class="right-content">
+                        <br />
+                        Contact : [ContactName]
+                        <img height="12" src="C:\Users\anh.tran\source\repos\ConvertHTMLtoPDF\ConvertHTMLtoPDF\Template\TemplateICon\icon_1.png" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="right-content">
+                        [ContactPhone]
+                        <img height="12" src="C:\Users\anh.tran\source\repos\ConvertHTMLtoPDF\ConvertHTMLtoPDF\Template\TemplateICon\icon_2.png" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="right-content">
+                        [ContactFax]
+                        <img height="12" src="C:\Users\anh.tran\source\repos\ConvertHTMLtoPDF\ConvertHTMLtoPDF\Template\TemplateICon\icon_3.png" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="right-content">
+                        [ContactEmail]
+                        <img height="12" src="C:\Users\anh.tran\source\repos\ConvertHTMLtoPDF\ConvertHTMLtoPDF\Template\TemplateICon\icon_4.png" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b class="header-label">Invocie No.</b> : [InvoiceNo]
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b class="header-label">Invoice Date</b> : [InvoiceDate]
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b class="header-label">Client Order No.</b> : [OrderNo]
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b class="header-label">Order Date</b> : [OrderDate]
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b class="header-label">Period</b> : [Period]
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        [Introduction]
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="datatable service">
+            <thead>
+                <tr>
+                    <th>
+                        Service Name
+                    </th>
+                    <th class="right-text">
+                        Quantity
+                    </th>
+                    <th class="right-text">
+                        Price
+                    </th>
+                    <th class="right-text">
+                        Tax
+                    </th>
+                    <th class="right-text">
+                        Total
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="row-bg">
+                    <td>
+                        Service Name
+                    </td>
+                    <td class="right-text">
+                        Quantity
+                    </td>
+                    <td class="right-text">
+                        Price
+                    </td>
+                    <td class="right-text">
+                        Tax
+                    </td>
+                    <td class="right-text">
+                        Total
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Service Name
+                    </td>
+                    <td class="right-text">
+                        Quantity
+                    </td>
+                    <td class="right-text">
+                        Price
+                    </td>
+                    <td class="right-text">
+                        Tax
+                    </td>
+                    <td class="right-text">
+                        Total
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="footer-row">
+                        Service Name
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="mt-10">
+            <tbody>
+                <tr>
+                    <td>
+                        <b>Note :</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        [Note]
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

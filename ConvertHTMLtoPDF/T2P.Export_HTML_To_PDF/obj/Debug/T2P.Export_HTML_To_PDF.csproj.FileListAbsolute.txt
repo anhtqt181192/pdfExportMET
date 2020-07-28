@@ -1,0 +1,10 @@
+C:\Users\anh.tran\source\repos\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\bin\Debug\T2P.Export_HTML_To_PDF.dll
+C:\Users\anh.tran\source\repos\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\bin\Debug\T2P.Export_HTML_To_PDF.pdb
+C:\Users\anh.tran\source\repos\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\bin\Debug\itextsharp.dll
+C:\Users\anh.tran\source\repos\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\bin\Debug\itextsharp.xmlworker.dll
+C:\Users\anh.tran\source\repos\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\bin\Debug\itextsharp.xml
+C:\Users\anh.tran\source\repos\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\obj\Debug\T2P.Export_HTML_To_PDF.csprojAssemblyReference.cache
+C:\Users\anh.tran\source\repos\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\obj\Debug\T2P.Export_HTML_To_PDF.csproj.CoreCompileInputs.cache
+C:\Users\anh.tran\source\repos\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\obj\Debug\T2P.Export_HTML_To_PDF.csproj.CopyComplete
+C:\Users\anh.tran\source\repos\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\obj\Debug\T2P.Export_HTML_To_PDF.dll
+C:\Users\anh.tran\source\repos\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\obj\Debug\T2P.Export_HTML_To_PDF.pdb

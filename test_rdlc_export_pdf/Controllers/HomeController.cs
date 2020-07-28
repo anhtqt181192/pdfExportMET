@@ -1,16 +1,19 @@
 ﻿using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
 using Microsoft.Reporting.WebForms;
 using Microsoft.ReportingServices.Diagnostics.Internal;
 using Newtonsoft.Json;
+using PdfSharp.Charting;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
+using test_rdlc_export_pdf.App_Start;
 
 namespace test_rdlc_export_pdf.Controllers
 {
@@ -23,26 +26,25 @@ namespace test_rdlc_export_pdf.Controllers
 
         public ActionResult HTMLToPDF()
         {
-            string html = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~\\Template\\template.html"));
-            string css = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~\\Template\\template.css"));
-            var bytes = CovnertHTMLToPDF(html, css);
-            ByteArrayToFile(bytes, HttpContext.Server.MapPath("~\\Template\\testfile.pdf"));
-            return View();
-        }
-
-        public void ByteArrayToFile(byte[] byteArray, string fileName)
-        {
             try
             {
-                using (var fs = new FileStream(fileName, FileMode.Create, FileAccess.Write))
-                {
-                    fs.Write(byteArray, 0, byteArray.Length);
-                }
+                string html = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~\\Template\\template.html"));
+                string css = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~\\Template\\template.css"));
+                byte[] fontStream = System.IO.File.ReadAllBytes(HttpContext.Server.MapPath("~\\Template\\Roboto\\Roboto-Regular.ttf"));
+                var bytes = CovnertHTMLToPDF(html, css, fontStream);
+                //ByteArrayToFile(bytes, HttpContext.Server.MapPath("~\\Template\\testfile.pdf"));
+                Response.Buffer = true;
+                Response.Clear();
+                Response.ContentType = string.Empty;
+                Response.AddHeader("content-disposition", "attachment; filename=test.pdf");
+                Response.BinaryWrite(bytes); // create the file
+                Response.Flush(); // send it to the client to download
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                Console.WriteLine("Exception caught in process: {0}", ex);
+                ViewBag.Error = JsonConvert.SerializeObject(e);
             }
+            return View();
         }
 
         public ActionResult About()
@@ -168,13 +170,13 @@ namespace test_rdlc_export_pdf.Controllers
         }
 
 
-        public byte[] CovnertHTMLToPDF(string html, string css)
+        public byte[] CovnertHTMLToPDF(string html, string css, byte[] font)
         {
             //Create a byte array that will eventually hold our final PDF
             byte[] bytes;
             using (var ms = new MemoryStream())
             {
-                using (var doc = new Document(PageSize.A4, 25, 25, 25, 25))
+                using (var doc = new Document(PageSize.A4, 25, 25, 25, 75))
                 {
                     using (var writer = PdfWriter.GetInstance(doc, ms))
                     {
@@ -190,13 +192,12 @@ namespace test_rdlc_export_pdf.Controllers
                         {
                             doc.Add(new Paragraph(String.Format("This is paragraph #{0}", i)));
                         }
+
                         doc.Close();
                     }
                 }
                 bytes = ms.ToArray();
             }
-            var testFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "test.pdf");
-            System.IO.File.WriteAllBytes(testFile, bytes);
 
             //Read our sample PDF and apply page numbers
             using (var reader = new PdfReader(bytes))
@@ -208,14 +209,44 @@ namespace test_rdlc_export_pdf.Controllers
                         int PageCount = reader.NumberOfPages;
                         for (int i = 1; i <= PageCount; i++)
                         {
-                            ColumnText.ShowTextAligned(stamper.GetOverContent(i), Element.ALIGN_RIGHT, new Phrase(String.Format("{0}", i)), 585, 10, 0);
+                            RenderPdfFooter(stamper.GetOverContent(i), i);
                         }
                     }
                     bytes = ms.ToArray();
                 }
             }
-
             return bytes;
+        }
+
+        public void RenderPdfFooter(PdfContentByte page, int PageNumber)
+        {
+            BaseFont basefont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, false);
+            iTextSharp.text.Font fontsize = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 20);
+            page.SetColorFill(new BaseColor(51, 51, 51));
+            var phare = new Phrase(PageNumber.ToString());
+            phare.Font = fontsize;
+
+            List<IElement> parsedText = ConvertToHtmlForColumnText("<table><tbody><tr><td>1</td><td>2</td><td>3</td></tr></tbody></table>");
+
+            page.Rectangle(20, 20, 550, 75);
+            page.Stroke();
+            Rectangle rect = new Rectangle(20, 20, 550, 75);
+            ColumnText ct = new ColumnText(page);
+            ct.SetSimpleColumn(rect);
+            foreach(var item in parsedText)
+            {
+                ct.AddElement(item);
+            }
+            ct.Go();
+
+            ColumnText.ShowTextAligned(page, Element.ALIGN_RIGHT, phare, 575, 20, 0);
+        }
+
+        List<IElement> ConvertToHtmlForColumnText(String text)
+        {
+            ListElementHandler listHandler = new ListElementHandler();
+            XMLWorkerHelper.GetInstance().ParseXHtml(listHandler, new StringReader(text));
+            return listHandler.List;
         }
     }
 }
