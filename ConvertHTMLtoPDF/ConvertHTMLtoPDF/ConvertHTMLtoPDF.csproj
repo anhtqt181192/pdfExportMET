@@ -226,9 +226,11 @@
     <Content Include="Template\Roboto\Roboto-Regular.ttf" />
     <Content Include="Template\Roboto\Roboto-Thin.ttf" />
     <Content Include="Template\Roboto\Roboto-ThinItalic.ttf" />
-    <Content Include="Template\testfile.pdf" />
     <Content Include="Views\Home\Export.cshtml" />
     <Content Include="Template\Template.docx" />
+    <None Include="Properties\PublishProfiles\webapp-ig-dev - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\webapp-ig-dev - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\webapp-ig-dev - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

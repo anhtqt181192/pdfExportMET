@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using T2P.Export_HTML_To_PDF;
+using T2P.Export_HTML_To_PDF.Extentions;
 using T2P.Export_HTML_To_PDF.Models;
 
 namespace ConvertHTMLtoPDF.Controllers
@@ -28,6 +29,14 @@ namespace ConvertHTMLtoPDF.Controllers
                 template.dir = HttpContext.Server.MapPath("~\\Template");
                 template.out_FileName = "testmvnas.pdf";
                 ExportHelpers.ToPDF(template);
+
+                byte[] bytes = ByteHelpers.GetByteFromFile(template.dir + "\\" + template.out_FileName);
+                Response.Buffer = true;
+                Response.Clear();
+                Response.ContentType = string.Empty;
+                Response.AddHeader("content-disposition", "attachment; filename=testmvnas.pdf");
+                Response.BinaryWrite(bytes); // create the file
+                Response.Flush(); // send it to the client to download
             }
             catch (Exception e)
             {

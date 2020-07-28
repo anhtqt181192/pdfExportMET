@@ -1,0 +1,10 @@
+C:\Users\Mars\Source\Repos\pdfExportMET\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\bin\Release\T2P.Export_HTML_To_PDF.dll
+C:\Users\Mars\Source\Repos\pdfExportMET\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\bin\Release\T2P.Export_HTML_To_PDF.pdb
+C:\Users\Mars\Source\Repos\pdfExportMET\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\bin\Release\itextsharp.dll
+C:\Users\Mars\Source\Repos\pdfExportMET\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\bin\Release\itextsharp.xmlworker.dll
+C:\Users\Mars\Source\Repos\pdfExportMET\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\bin\Release\itextsharp.xml
+C:\Users\Mars\Source\Repos\pdfExportMET\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\obj\Release\T2P.Export_HTML_To_PDF.csprojAssemblyReference.cache
+C:\Users\Mars\Source\Repos\pdfExportMET\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\obj\Release\T2P.Export_HTML_To_PDF.csproj.CoreCompileInputs.cache
+C:\Users\Mars\Source\Repos\pdfExportMET\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\obj\Release\T2P.Export_HTML_To_PDF.csproj.CopyComplete
+C:\Users\Mars\Source\Repos\pdfExportMET\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\obj\Release\T2P.Export_HTML_To_PDF.dll
+C:\Users\Mars\Source\Repos\pdfExportMET\ConvertHTMLtoPDF\T2P.Export_HTML_To_PDF\obj\Release\T2P.Export_HTML_To_PDF.pdb
